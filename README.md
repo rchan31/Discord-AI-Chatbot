@@ -1,6 +1,6 @@
 # Discord-AI-Chatbot
 
-This is a customizable Discord chatbot responding to your messages in a server, and it can be run using Replit.
+This is a customizable Discord chatbot using OpenAI to respond to messages in a server, and it can be run using Replit.
 
 Setup:
 1) Create a discord server.
