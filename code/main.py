@@ -18,6 +18,11 @@ async def on_ready():
   print('Logged in as {0.user}'.format(client))
 
 @client.event
+async def start_message():
+    print("Bot: Hi! Let's talk.")
+  
+  
+@client.event
 async def on_message(message):
   # bot only responds to user
   if message.author == client.user:
@@ -40,3 +45,4 @@ running()
 
 # run bot
 client.run(token)
+client.start_message()
