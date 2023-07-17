@@ -2,7 +2,10 @@ import os
 import discord
 import openai
 from running import running
+from discord.ext import commands
 
+bot = commands.Bot(command_prefix='!', intents = discord.Intents.all())
+bot.list = ["Full list"]
 token = os.environ['DISCORD_TOKEN']
 openai_key = os.environ['OPENAI_KEY']
 
@@ -17,11 +20,6 @@ client = discord.Client(command_prefix='.', intents=intents)
 async def on_ready():
   print('Logged in as {0.user}'.format(client))
 
-@client.event
-async def start_message():
-    print("Bot: Hi! Let's talk.")
-  
-  
 @client.event
 async def on_message(message):
   # bot only responds to user
@@ -40,9 +38,15 @@ async def on_message(message):
       temperature = 0.5)
     await message.channel.send(response.choices[0].text)
 
+# to do list
+@client.event()
+async def list(ctx, *, item):
+    await ctx.send("Added!")
+    bot.list.append(item)
+    print(bot.happylist)
+
 # keep bot perpetually running
 running()
 
 # run bot
 client.run(token)
-client.start_message()
