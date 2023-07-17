@@ -1,6 +1,8 @@
 from flask import Flask
 from threading import Thread
 
+# This file keeps the bot running in the background.
+
 app = Flask('')
 
 @app.route('/')
