@@ -45,7 +45,7 @@ async def list(ctx, *, item):
     bot.list.append(item)
     print(bot.happylist)
 
-# keep bot perpetually running
+# bot is perpetually running
 running()
 
 # run bot
